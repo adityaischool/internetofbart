@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no">
+<head>
+
+  <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="stylesheet" href="static/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="static/css/fonts.css">
+  <link rel="stylesheet" href="static/css/animate.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body class="financialoverview-pg cashoutbody">
+
+  <div class="demographics">
+    <div class="wrapper">
+      <h1>The Impact Of Your Savings</h1>
+      
+      <div class="challenge-img">
+        <img src="../static/img/applysavings.png">
+        <h2>Beer Buster Saved You:<br/>
+        <span style="font-weight: normal; margin-top: 20px;">$230 This Month</span></h2>
+      </div>
+      
+      <hr/>
+      
+      <div class="apply-equally">
+        <h3>Recommended Application of<br/>Your Challenge Savings</h3>
+        <br/>
+        <img class="text-center" src="../static/img/equal-graph.png" width="250" style="text-align: center;">
+        <br/><br/>
+        <div class="divide-savings">
+          <button class="divide-btn btn btn-lg" type="submit">Apply Savings to Debt</button>
+          <br><br><br><br><br><br>
+        </div>
+      </div>
+      
+      <br/>
+  
+      
+<!--        <button class="divide-btn btn btn-lg" type="submit">Choose Debts to Apply To</button>-->
+      
+    </div>
+  </div>
+
+   <div class='btnbar'>
+      
+       <button class='navbutton' id='navbutton1'><img src='../static/images/icons_home_dashboard.png'></button>
+
+       <button class='navbutton' id='navbutton2'><img src='../static/images/icons_home_analytics.png'></button>
+
+       <button class='navbutton' id='navbutton3'><img src='../static/images/icons_home_friends.png'></button>
+
+       <button class='navbutton' id='navbutton4'><img src='../static/images/icons_home_challenges.png'></button>
+
+  </div>
+    <script src="../static/js/interaction.js"></script>
+
+  <script>
+    $(document).ready(function(){
+        
+        $('.gender-female').hover(
+          function() {
+            $(this).addClass("gender-female-overlay");
+          },
+          function() {
+            $(this).removeClass("gender-female-overlay");
+          }
+        );
+      
+        $('.gender-male').hover(
+          function() {
+            $(this).addClass("gender-male-overlay");
+          },
+          function() {
+            $(this).removeClass("gender-male-overlay");
+          }
+        );
+      
+        $('.gender-female').click(function() {
+            $(this).css("background-image", "url('../static/img/female.png')");
+          }
+        );
+      
+        $('.gender-male').click(function() {
+            $(this).css("background-image", "url('../static/img/male.png')");
+          }
+        );
+      
+      
+      
+        $('.demo-btn').hover(function() {
+          $(this).addClass("animated pulse");
+        }, function() {
+          $(this).removeClass("animated pulse");
+        });
+      
+        $('.demo-btn').click(function() {
+          if ($(this).find(".goal-img").hasClass("add-btn-checked") || $(this).hasClass("custom-btn")){
+            $(this).removeClass("btn-checked");
+            $(this).find(".goal-img").removeClass("add-btn-checked")
+          } else {
+            $(this).addClass("btn-checked");
+            $(this).find(".goal-img").addClass("add-btn-checked");
+          }
+        });
+      
+        $('.cc-loan-btn').click(function(){
+          console.log("loan or cc btn clicked");
+          $(".cc-loan-btn").addClass("demo-btn-checked");
+        });
+      
+        $('.custom-btn').click(function(){
+          console.log("custom button");
+          $(".goals-questions").removeClass("show").addClass("hide");
+          $(".custom-goal").addClass("animated fadeInRight show");
+        });
+      
+        $('.goal-back').click(function(){
+          console.log("goal back button click");
+          $(".goals-questions").addClass("animated fadeInLeft show");
+          $(".custom-goal").removeClass("show").addClass("hide");
+        });
+            
+    });
+  </script>
+
+</body>
+</html>

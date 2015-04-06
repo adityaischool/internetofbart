@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no">
+<head>
+
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/createnewchallenge.css"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div class='title' id='singlechallengetitle'>
+		
+		CREATE NEW CHALLENGE
+
+	</div>
+
+	<select id="categoryselect">
+
+			<option value="NA">SELECT CATEGORY</option>
+			
+			<option value="food">Food</option>
+
+			<option value="drinks">Drinks</option>
+
+			<option value="travel">Travel</option>
+
+			<option value="clothes">Clothes</option>
+
+			<option value="entertainment">Entertainment</option>
+
+	</select>
+
+	<form id='newchallengeform'>
+
+		<input type='text' id='challengename' value='Name'></input><br><br>
+
+		<input type='text' id='challengedescription' value='Description'></input><br><br>
+
+		<div id='visibilityprivate'>PRIVATE</div>
+
+		<div id='visibilitypublic'>PUBLIC</div>
+
+		<input type='submit' class='button1' id='newchallengesubmit' value='CREATE '></input>
+
+
+	</form>
+
+
+
+	
+
+    <div class='btnbar'>
+        
+	    <button class='navbutton' id='navbutton1'>1</button>
+
+	    <button class='navbutton' id='navbutton2'>2</button>
+
+	    <button class='navbutton' id='navbutton3'>3</button>
+
+	    <button class='navbutton' id='navbutton4'>4</button>
+
+    </div>
+
+    <script src="js/interaction.js"></script>
+
+</body>

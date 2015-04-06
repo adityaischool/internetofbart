@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>Internet Of Bart</title>
+	<link rel="shortcut icon" href="static/images/train-multi-size.ico" />
+	<meta name="description" content="Essentia Responsive Bootstrap Theme by Bootstrap Master"/>
+	<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+	<meta name="author" content="Łukasz Holeczek from creativeLabs"/>
+	<!-- end: Meta -->
+	
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- end: Mobile Specific -->
+	
+	<!-- start: Facebook Open Graph -->
+	<meta property="og:title" content=""/>
+	<meta property="og:description" content=""/>
+	<meta property="og:type" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+	<!-- end: Facebook Open Graph -->
+
+    <!-- start: CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet">
+	<link href="static/css/slider1.css" rel="stylesheet">
+	<link href="static/css/slider2.css" rel="stylesheet">
+	<link href="static/css/slider3.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+	<!-- end: CSS -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="demo">
+	
+</div>
+	<!-- start: 1st Page - Home -->
+	<div id="home">
+
+		<div class="demo-1" >
+		<div id="loader" class="vertical-center">
+			<p id="result">Loading BART Data <br><br><img src="/static/images/load4.gif" alt=""></img></p>
+		</div>
+	        <div id="slider" class="sl-slider-wrapper">
+
+
+				<div class="sl-slider" id="thisSlider">
+
+					
+				</div><!-- /sl-slider -->
+
+				<nav id="nav-arrows" class="nav-arrows">
+					<span class="nav-arrow-prev">Previous</span>
+					<span class="nav-arrow-next">Next</span>
+				</nav>
+
+				<nav id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</nav>
+
+			</div><!-- /slider-wrapper -->
+
+	    </div>
+
+	</div>
+	<!-- end: 1st Page - Home -->
+					
+
+	
+
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/isotope.js"></script>
+<script type="text/javascript" src="static/js/jquery.imagesloaded.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/flexslider.js"></script>
+<script type="text/javascript" src="static/js/carousel.js"></script>
+<script type="text/javascript" src="static/js/fancybox.js"></script>
+<script type="text/javascript" src="static/js/twitter.js"></script>
+<script type="text/javascript" src="static/js/modernizr.custom.79639.js"></script>
+<script type="text/javascript" src="static/js/jquery.ba-cond.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.slitslider.js"></script>
+
+<script type="text/javascript" src="static/js/excanvas.js"></script>
+<script type="text/javascript" src="static/js/jquery.flot.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.flot.pie.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.flot.stack.js"></script>
+<script type="text/javascript" src="static/js/jquery.flot.resize.min.js"></script>
+
+<script defer="defer" src="static/js/custom.js"></script>
+
+<!-- end: Java Script -->
+
+</body>
+<script>
+	var x = document.getElementById("demo");
+	function getLocation() {
+		console.log("aaaa");
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+	function showPosition(position) {
+		//x.innerHTML = "Latitude: " + position.coords.latitude +"<br>Longitude: " + position.coords.longitude;
+		$.getJSON('/_postLocation', {
+			longit: position.coords.longitude,
+			lati: position.coords.latitude
+		}, function(data) {
+			console.log("in function");
+			console.log(data);
+      	//resultSet=jQuery.parseJSON(data);
+      	//$("#result").html("<p>"+"Nearest Station Detected - "+data.stationabbr+"<br>"+"Departure - "+data.dict[0].origTime+"<br>"+"Destination - "+data.dict[0].trainHeadStation+"</p>"+"<br>"+"Car Data - "+data.dict[0].carData+"</p>");
+      	jQuery.each(data.dict, function() {
+
+      		console.log("Looping"+this.carData);
+      		//append child in slider
+      		$("#thisSlider").append("<div class='sl-slide bg-2' data-orientation='vertical' data-slice1-rotation='10' data-slice2-rotation='-15' data-slice1-scale='1.5' data-slice2-scale='1.5'><div class='sl-slide-inner'><div class='deco' data-icon='"+this.trainHeadStation[0]+"'></div><h2>"+data.stationabbr+" to "+this.trainHeadStation+"<br>"+this.origTime+"     Load-"+this.loadFactor+"</h2><blockquote><p>Car Traffic Data </p><cite>Heavy</cite></blockquote></div></div>");
+
+      	});
+      applySlider();
+  });
+	}
+	getLocation();
+</script>
+<script type="text/javascript">	
+	function applySlider() {
+	      		console.log("applying second JS");
+
+		var Page = (function() {
+
+			var $navArrows = $( '#nav-arrows' ),
+				$nav = $( '#nav-dots > span' ),
+				slitslider = $( '#slider' ).slitslider( {
+					onBeforeChange : function( slide, pos ) {
+
+						$nav.removeClass( 'nav-dot-current' );
+						$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+					}
+				} ),
+
+				init = function() {
+
+					initEvents();
+					
+				},
+				initEvents = function() {
+
+					// add navigation events
+					$navArrows.children( ':last' ).on( 'click', function() {
+
+						slitslider.next();
+						return false;
+
+					} );
+
+					$navArrows.children( ':first' ).on( 'click', function() {
+						
+						slitslider.previous();
+						return false;
+
+					} );
+
+					$nav.each( function( i ) {
+					
+						$( this ).on( 'click', function( event ) {
+							
+							var $dot = $( this );
+							
+							if( !slitslider.isActive() ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$dot.addClass( 'nav-dot-current' );
+							
+							}
+							
+							slitslider.jump( i + 1 );
+							return false;
+						
+						} );
+						
+					} );
+
+				};
+
+				return { init : init };
+
+		})();
+
+		Page.init();
+		$("#loader").remove();
+	
+	};
+</script>
+
+
+</html>

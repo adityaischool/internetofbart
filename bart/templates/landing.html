@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no">
+<head>
+	<title>Internet Of Bart</title>
+	<link rel="shortcut icon" href="static/images/train-multi-size.ico" />
+	<link rel="stylesheet" href="static/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="static/css/style.css" />
+	<link rel="stylesheet" href="static/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="static/css/fonts.css">
+	<link rel="stylesheet" href="static/css/dashboard.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body id="page" class="index">
+<div class="header header2">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand dash" href="#" align="centre">Internet Of Bart</a>
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="container" top:"60px">
+	<p><i class="fa fa-spinner"></i></p>
+		<p id="demo">Your Location</p>
+		<p id="result"><img width="64" height="64"src="/static/images/load4.gif" alt=""></img></p>
+	</div>
+	</div>
+</body>
+<script>
+	var x = document.getElementById("demo");
+	function getLocation() {
+		console.log("aaaa");
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+	function showPosition(position) {
+		x.innerHTML = "Latitude: " + position.coords.latitude +
+		"<br>Longitude: " + position.coords.longitude;
+		$.getJSON('/_postLocation', {
+			longit: position.coords.longitude,
+			lati: position.coords.latitude
+		}, function(data) {
+			console.log("in function");
+			console.log(data);
+      	//resultSet=jQuery.parseJSON(data);
+      	$("#result").html("<p>"+"Nearest Station Detected - "+data.stationabbr+"<br>"+"Departure - "+data.dict[0].origTime+"<br>"+"Destination - "+data.dict[0].trainHeadStation+"</p>"+"<br>"+"Car Data - "+data.dict[0].carData+"</p>");
+      });
+	}
+	getLocation();
+</script>
+
+
+</html>

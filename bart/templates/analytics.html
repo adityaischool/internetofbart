@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no">
+<head>
+
+
+<link rel="stylesheet" href="static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="static/css/fonts.css">
+<link rel="stylesheet" href="static/css/style.css"/>
+<link rel="stylesheet" href="static/css/analytics.css"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div id='analyticstopheader'>ANALYTICS</div>
+
+	<div id='chartcarousel'>
+		
+		<div class='chart' id='chart1'>
+
+			<img src='../static/images/spendingpiechart.png'>
+
+		</div>
+
+		<div class='chart' id='chart2'>
+
+			<img src='../static/images/categorieschart.png'>
+
+		</div>
+
+		<div class='chart' id='chart3'>
+
+			<img src='../static/images/monthlysavingschart.png'>
+
+		</div>
+
+		<div class='chart' id='chart4'>
+
+			<img src='../static/images/donutchart.png'>
+
+		</div>
+
+	</div>
+
+
+	
+
+    <div class='btnbar'>
+      
+       <button class='navbutton' id='navbutton1'><img src='../static/images/icons_home_dashboard.png'></button>
+
+       <button class='navbutton' id='navbutton2'><img src='../static/images/icons_home_analytics.png'></button>
+
+       <button class='navbutton' id='navbutton3'><img src='../static/images/icons_home_friends.png'></button>
+
+       <button class='navbutton' id='navbutton4'><img src='../static/images/icons_home_challenges.png'></button>
+
+  </div>
+
+    <script>
+	$(document).ready(function(){
+	    
+	        $("#chartcarousel").scrollLeft(290);
+
+	 });
+	</script>
+
+    <script src="../static/js/interaction.js"></script>
+
+</body>
