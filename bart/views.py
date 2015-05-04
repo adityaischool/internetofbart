@@ -55,3 +55,16 @@ def postLocation():
 		#here iterate over each list item and hit ASbase
 		print {'dicto':finalDataStruct,'stationabbr':stationCode}
 		return json.dumps({'dict':finalDataStruct,'stationabbr':stationCode})
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+	if request.method == 'POST':
+		f = request.files['file1']
+		f2 = request.files['file2']
+		f3 = request.files['file3']
+		f.save('bart/static/uploads/background.jpeg')
+		f2.save('bart/static/uploads/newPicture.jpeg')
+		f3.save('bart/static/uploads/result.jpeg')
+		return '200'
+	else:
+		return 'Upload Page'

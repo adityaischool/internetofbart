@@ -1,0 +1,39 @@
+{"actor": {
+    "displayName": "BARTtrain",
+    "id": "1",
+    "objectType": "train"
+    },
+    "verb": "checkin",
+    "published": startTime,
+    "status": "completed",
+    "object": {
+        "dataFields": {
+            "train_length": 1,
+            "train_route": 7,
+            "train_index": 72,
+            "route_start": "SFIA",
+            "route_end": "PITT",
+            "station_previous": "ROCK",
+            "station_next": "ORIN",
+            "car_1": {
+                "car_density_index": density,
+                "overcrowded": "overcrowded"
+            },
+            "train_density_index": train_density_index,
+            "train_overcrowded": "train_overcrowded"
+        },
+        "objectType": "trainRecord"
+    }
+}
+
+
+--------------------------
+
+
+{"actor":{"displayName":"TestSeat","objectType":"person"},"requestID":"personID","descriptor-tags":["chair","rolling"],"verb":"request","startTime":"2015-04-27T00:04:55.000Z","endTime":"2015-04-27T00:04:55.000Z","id":"http://128.32.78.37:8080/activities/1b87b60bc62d43d081c70a9a0436d494","object":{"displayName":"Chair","id":"chairID","position":{"altitude":"100.05","latitude":"34.34","longitude":"-127.23"},"objectType":"place"}},
+
+
+
+
+{"actor":{"displayName":"Unknown","objectType":"person"},"provider":{"displayName":"BerkeleyChair"},"verb":"request","published":"2015-04-29T10:34:10.000Z","id":"http://128.32.78.37:8080/activities/b1121f0a228b44a98f8c09ef51036b00","object":{"address":{"locality":"Berkeley","region":"CA"},"displayName":"Seat5 on Bart Car2","descriptor-tags":["chair"],"id":"http://example.org/bart/car2/seat/5","objectType":"place"}},{"actor":{"displayName":"Unknown","objectType":"person"},"provider":{"displayName":"BerkeleyChair"},"verb":"leave","published":"2015-04-29T10:34:00.000Z","id":"http://128.32.78.37:8080/activities/afd9eb71c11b442eb4b278c2c6c77368","object":{"address":{"locality":"Berkeley","region":"CA"},"displayName":"Seat5 on Bart Car2","descriptor-tags":["chair"],"id":"http://example.org/bart/car2/seat/5","objectType":"place"}}
+
