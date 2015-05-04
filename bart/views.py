@@ -62,6 +62,7 @@ def upload():
 		f = request.files['file1']
 		f2 = request.files['file2']
 		f3 = request.files['file3']
+		print "file recieved"
 		f.save('bart/static/uploads/background.jpeg')
 		f2.save('bart/static/uploads/newPicture.jpeg')
 		f3.save('bart/static/uploads/result.jpeg')

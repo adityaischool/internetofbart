@@ -6,7 +6,10 @@ def uploadimages():
 
 def uploadimagestest():
 	url = "http://127.0.0.1:5000/upload"
-	files = {'file1': open('text.txt', 'rb')}
+	files = {'file1': open('text.txt', 'rb'),'file2': open('text.txt', 'rb'),'file3': open('text.txt', 'rb')}
 	r = requests.post(url, files=files)
-
+def uploadimagestest2():
+	url = "http://internetofbart.productfactory.me/upload"
+	files = {'file1': open('text.txt', 'rb'),'file2': open('text.txt', 'rb'),'file3': open('text.txt', 'rb')}
+	r = requests.post(url, files=files)
 uploadimagestest()
