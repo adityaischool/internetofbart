@@ -3,8 +3,7 @@ from flask import url_for
 from bart import app
 import urllib2
 import math
-import json
-import requests
+import json,os,requests,os,datetime,time
 from bart import apiLayer,asBaseLayer
 from flask import Response
 #import request
@@ -62,10 +61,31 @@ def upload():
 		f = request.files['file1']
 		f2 = request.files['file2']
 		f3 = request.files['file3']
-		print "file recieved"
-		f.save('bart/static/uploads/background.jpeg')
-		f2.save('bart/static/uploads/newPicture.jpeg')
-		f3.save('bart/static/uploads/result.jpeg')
+		imgid=datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
+		print "files recieved -",imgid
+		path1=os.path.dirname(__file__)
+		f.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg'))
+		f2.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-n.jpeg'))
+		f3.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-r.jpeg'))
 		return '200'
 	else:
 		return 'Upload Page'
+
+@app.route('/images', methods=['GET', 'POST'])
+def images():
+	path1=os.path.dirname(__file__)
+	filelist=os.listdir(os.path.join(path1,'static/uploads/'))
+	filelist.sort()
+	imagelist=[]
+	tempobj={}
+	for i in filelist:
+		if '-b' in i:
+			tempobj['b']='/static/uploads/'+i
+		elif '-n' in i:
+			tempobj['n']='/static/uploads/'+i
+		elif '-r' in i:
+			tempobj['r']='/static/uploads/'+i
+			imagelist.append((tempobj))
+			tempobj={}
+	print imagelist
+	return render_template("stream.html",imagelist=imagelist)
