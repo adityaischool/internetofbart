@@ -63,12 +63,16 @@ def upload():
 		f2 = request.files['file2']
 		f3 = request.files['file3']
 		imgid=datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
-		print "files recieved -",imgid , "path  "
+		print "files recieved -",imgid , "path  ",
 		path1=os.path.dirname(__file__)
+		print "filess  ",f,f2,f3
 		print os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg')
-		f.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg'))
-		f2.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-n.jpeg'))
-		f3.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-r.jpeg'))
+		try:
+			f.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg'))
+			f2.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-n.jpeg'))
+			f3.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-r.jpeg'))
+		except Exception as e:
+			print e
 		return '200'
 	else:
 		return 'Upload Page'
