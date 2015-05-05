@@ -57,13 +57,15 @@ def postLocation():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
+	print "hit upload"
 	if request.method == 'POST':
 		f = request.files['file1']
 		f2 = request.files['file2']
 		f3 = request.files['file3']
 		imgid=datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
-		print "files recieved -",imgid , "path  ", os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg')
+		print "files recieved -",imgid , "path  "
 		path1=os.path.dirname(__file__)
+		print os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg')
 		f.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg'))
 		f2.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-n.jpeg'))
 		f3.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-r.jpeg'))
