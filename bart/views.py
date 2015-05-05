@@ -62,7 +62,7 @@ def upload():
 		f2 = request.files['file2']
 		f3 = request.files['file3']
 		imgid=datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
-		print "files recieved -",imgid
+		print "files recieved -",imgid , "path  ", os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg')
 		path1=os.path.dirname(__file__)
 		f.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-b.jpeg'))
 		f2.save(os.path.join(path1,'static/uploads/'+str(imgid)+'-n.jpeg'))
