@@ -27,6 +27,10 @@
 }
 
 
+
+{"actor":{"displayname":"TestSeat","objectType":"person"},"requestID":"personID","verb":"request","startTime":"2015-03-10T00:04:55.000Z","endTime":"2015-03-11T00:04:55.000Z","UUID":"424f93b098824ee39b3da31ca1a017a7","object":{"displayName":"Chair","id":"chairID","objectType":"place"}},{"actor":{"displayname":"TestSeat","objectType":"person"},"verb":"request","startTime":"2015-03-10T00:04:55.000Z","endTime":"2015-03-11T00:04:55.000Z","UUID":"94e56ee87bdd437eb8ccb1bd00042409","object":{"displayName":"Chair","id":"chairID","objectType":"place"}}
+
+
 --------------------------
 
 
@@ -37,3 +41,21 @@
 
 {"actor":{"displayName":"Unknown","objectType":"person"},"provider":{"displayName":"BerkeleyChair"},"verb":"request","published":"2015-04-29T10:34:10.000Z","id":"http://128.32.78.37:8080/activities/b1121f0a228b44a98f8c09ef51036b00","object":{"address":{"locality":"Berkeley","region":"CA"},"displayName":"Seat5 on Bart Car2","descriptor-tags":["chair"],"id":"http://example.org/bart/car2/seat/5","objectType":"place"}},{"actor":{"displayName":"Unknown","objectType":"person"},"provider":{"displayName":"BerkeleyChair"},"verb":"leave","published":"2015-04-29T10:34:00.000Z","id":"http://128.32.78.37:8080/activities/afd9eb71c11b442eb4b278c2c6c77368","object":{"address":{"locality":"Berkeley","region":"CA"},"displayName":"Seat5 on Bart Car2","descriptor-tags":["chair"],"id":"http://example.org/bart/car2/seat/5","objectType":"place"}}
 
+
+
+
+{"actor":
+    {"displayName":"ISchool Seating Reservation System","id":"http://serene-wave-9290.herokuapp.com/new_request/"},
+    "reason":"Your request has been noted, but these seats are not reservable.","provider":{"displayName":"BerkeleyChair"},
+    "verb":"deny","published":"2015-05-07T17:48:02.000Z","id":"http://128.32.78.37:8080/activities/680ae3b8fe1448dc9cfd6d25c5456835","
+    object":{"actor":{"displayName":"Actor name","objectType":"person"},"provider":{"displayName":"BerkeleyRoom"},"verb":"request","startTime":"2015-01-06T15:04:55.000Z","id":"http://128.32.78.37:8080/activities/a9c9d12a9b7147e08b814f63ff0f208a","endTime":"2015-01-06T15:04:55.000Z","object":{"address":{"locality":"Berkeley","region":"CA"},"descriptor-tags":["chair","rolling"],"displayName":"Meeting room 206 at South Hall, UC Berkeley","position":{"altitude":100.05,"latitude":34.34,"longitude":-127.23},"id":"http://example.org/berkeley/southhall/meetingroom","objectType":"place"}}}
+
+
+
+[{'id': u'1', 'car_1': 
+    [{u'overcrowded': u'Low Crowding', u'car_density_index': 3}]}, {'id': u'1', 'car_1': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 3}]}, {'id': u'1', 'car_1': [{u'overcrowded': u'Low Crowding', u'car_density_index': 3}]}, {'car_2': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 1}], 'id': u'2'}]
+
+
+
+[{'car_2': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 1}]
+, 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'car_density_index': 1}], 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 1}], 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'car_density_index': 1}], 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 3}], 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'car_density_index': 3}], 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 3}], 'id': u'2', 'seat': True}, {'car_2': [{u'overcrowded': u'Low Crowding', u'car_density_index': 3}], 'id': u'2', 'seat': True}, {'car_1': [{u'overcrowded': u'Low Crowding', u'availableSeats': 5, u'car_density_index': 3}], 'id': u'1', 'seat': False}]

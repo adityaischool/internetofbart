@@ -89,16 +89,20 @@ def newreadfrombase(trainid):
 		print "AS Base seems down - "
 	#print result
 	#print result['items'][2]['object']
+	print "inside aswrapper......"
 	if('items' in result):
 		for objects in result['items']:
 			if type(objects['actor'])==type({}):
 				#print objects
-				if (objects['actor']['displayName']=='BARTtrain' and objects['actor']['id']=="1" and car1=False):
-					respList.append({'id':objects['actor']['id'],'car_1':[objects['object']['dataFields']['car_1']]})
+				print "ITERATING"
+				if (objects['actor']['displayName']=='BARTtrain' and objects['actor']['id']=="1" and car1==False):
+					respList.append({'id':objects['actor']['id'],'seat':False,'car_1':[objects['object']['dataFields']['car_1']]})
 					car1=True
-				if (objects['actor']['displayName']=='BARTtrain' and objects['actor']['id']=="2" and car1=False):
-					respList.append({'id':objects['actor']['id'],'car_2':[objects['object']['dataFields']['car_1']]})	
+					print "CAR 1 GOT TRUE ", respList
+				if (objects['actor']['displayName']=='BARTtrain' and objects['actor']['id']=="2" and car2==False):
+					respList.append({'id':objects['actor']['id'],'seat':True,'car_2':[objects['object']['dataFields']['car_1']]})	
 					car2=True
+					print "CAR 2 GOT TRUE ", respList
 				if car1 and car2:
 					return respList
 	else:
@@ -127,5 +131,5 @@ def newpushtobase(index,carid):
 #print readfrombase('1')
 #print readIndex(1000000)
 #pushtobase(2500000)
-newpushtobase(1500000,"1")
-print newreadfrombase("1")
+#newpushtobase(500000,"2")
+#print newreadfrombase("1")

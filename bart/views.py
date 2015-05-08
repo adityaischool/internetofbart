@@ -4,7 +4,7 @@ from bart import app
 import urllib2
 import math
 import json,os,requests,os,datetime,time
-from bart import apiLayer,asBaseLayer
+from bart import apiLayer,asBaseLayer,newASWrapper
 from flask import Response
 #import request
 
@@ -95,3 +95,44 @@ def images():
 			tempobj={}
 	print imagelist
 	return render_template("stream.html",imagelist=imagelist)
+
+
+@app.route('/station1', methods=['GET', 'POST'])
+def station1():
+	retDict=newASWrapper.newreadfrombase(1)
+	print "RETURN !!!!!",retDict
+	density=0
+	seat=False
+	crowd1='/static/images/green.png'
+	seat1='/static/images/green.png'
+	crowd2='/static/images/green.png'
+	seat2='/static/images/green.png'
+	for car in retDict:
+		if car['id']==1 or car['id']=='1':
+			density=car['car_1'][0]['car_density_index']
+			seat=car['seat']
+			if density>7:
+				crowd1='/static/images/red.png'
+			elif density>4:
+				crowd1='/static/images/orange.png'
+			else:
+				crowd1='/static/images/green.png'
+			if seat==False:
+				seat1='/static/images/green.png'
+			else:
+				seat1='/static/images/red.png'
+		if car['id']==2 or car['id']=='2':
+			density=car['car_2'][0]['car_density_index']
+			seat=car['seat']
+			if density>7:
+				crowd2='/static/images/red.png'
+			elif density>4:
+				crowd2='/static/images/orange.png'
+			else:
+				crowd2='/static/images/green.png'
+			if seat==False:
+				seat2='/static/images/green.png'
+			else:
+				seat2='/static/images/red.png'
+
+	return render_template("station1.html",crowd1=crowd1,seat1=seat1,crowd2=crowd2,seat2=seat2)
