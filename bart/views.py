@@ -81,7 +81,7 @@ def upload():
 def images():
 	path1=os.path.dirname(__file__)
 	filelist=os.listdir(os.path.join(path1,'static/uploads/'))
-	filelist.sort()
+	filelist.sort(reverse=True)
 	imagelist=[]
 	tempobj={}
 	for i in filelist:

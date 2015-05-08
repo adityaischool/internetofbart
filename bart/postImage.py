@@ -20,4 +20,4 @@ def randome():
 	print datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
 
 #randome()
-uploadimages()
+#uploadimages()
