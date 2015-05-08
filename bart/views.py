@@ -86,11 +86,11 @@ def images():
 	tempobj={}
 	for i in filelist:
 		if '-r' in i:
-			tempobj['b']='/static/uploads/'+i
+			tempobj['r']='/static/uploads/'+i
 		elif '-n' in i:
 			tempobj['n']='/static/uploads/'+i
 		elif '-b' in i:
-			tempobj['r']='/static/uploads/'+i
+			tempobj['b']='/static/uploads/'+i
 			imagelist.append((tempobj))
 			tempobj={}
 	print imagelist
