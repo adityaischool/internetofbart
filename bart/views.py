@@ -136,3 +136,20 @@ def station1():
 				seat2='/static/images/red.png'
 
 	return render_template("station1.html",crowd1=crowd1,seat1=seat1,crowd2=crowd2,seat2=seat2)
+
+
+@app.route('/getcardata', methods=['GET', 'POST'])
+def getcardata():
+	retDict=newASWrapper.newreadfrombase(1)
+	print "RETURN !!!!!",retDict
+	density=0
+	seat=False
+	crowd1='/static/images/green.png'
+	seat1='/static/images/green.png'
+	crowd2='/static/images/green.png'
+	seat2='/static/images/green.png'
+	for car in retDict:
+		if car['id']==1 or car['id']=='1':
+			density=car['car_1'][0]['car_density_index']
+			seat=car['seat']
+	return json.dumps({'crowd':density,'seat':seat})
